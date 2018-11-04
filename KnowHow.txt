@@ -16,6 +16,9 @@ Visual Studio ICONS ==> File Icons
 Sequelize CLI Usage : Youtube Video : https://www.youtube.com/watch?v=qwAEYnfC3K8
 ------------------------------------------------------------------------------------
 
+Sequelize Database First Model Generation
+-----------------------------------------------
+sequelize-auto -o "./models" -d vericurious -h 192.168.13.60 -u root -p 3306 -x qwq1234. -e mysql
 
 
 Sequelize Migration
