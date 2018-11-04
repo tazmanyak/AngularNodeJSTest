@@ -9,5 +9,5 @@ sequelizejs => https://github.com/sequelize/sequelize#installation
 
 
 
--- https://github.com/sequelize/express-example/blob/master/models/task.js
-
+Entity Creation => -- https://github.com/sequelize/express-example/blob/master/models/task.js
+Sequelize CLI ==> https://github.com/sequelize/cli
