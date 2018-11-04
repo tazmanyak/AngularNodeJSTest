@@ -16,3 +16,10 @@ Visual Studio ICONS ==> File Icons
 Sequelize CLI Usage : Youtube Video : https://www.youtube.com/watch?v=qwAEYnfC3K8
 ------------------------------------------------------------------------------------
 
+
+
+Sequelize Migration
+--------------------
+create migration ==> sequelize migration:create --namevcs-1
+migrate ==> sequelize db:migrate
+migrate undo ==> sequelize db:migrate:undo
