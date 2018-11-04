@@ -11,3 +11,8 @@ sequelizejs => https://github.com/sequelize/sequelize#installation
 
 Entity Creation => -- https://github.com/sequelize/express-example/blob/master/models/task.js
 Sequelize CLI ==> https://github.com/sequelize/cli
+Visual Studio ICONS ==> File Icons
+
+Sequelize CLI Usage : Youtube Video : https://www.youtube.com/watch?v=qwAEYnfC3K8
+------------------------------------------------------------------------------------
+
