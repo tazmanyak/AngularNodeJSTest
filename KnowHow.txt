@@ -7,3 +7,7 @@ sequelizejs => https://github.com/sequelize/sequelize#installation
 	$ npm install --save sqlite3
 	$ npm install --save tedious # MSSQL
 
+
+
+-- https://github.com/sequelize/express-example/blob/master/models/task.js
+
