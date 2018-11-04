@@ -1,0 +1,15 @@
+TODO:
+
+Database( Code First Entity MySQL)
+----------------------------------
+* Creating new database architecture
+
+
+Front-End (Angular 7)
+----------------------
+* Transfering Node Entity Models to Angular Entity
+
+Back-End ( NodeJS API )
+----------------------
+* Writing entity class models
+* Migrating entity with code first for MySQL Generation
