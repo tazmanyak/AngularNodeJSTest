@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     organizationId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
+      primaryKey: true, autoIncrement: true,
       references: {
         model: 'organizations',
         key: 'id'
@@ -14,13 +14,13 @@ module.exports = function(sequelize, DataTypes) {
     teamId: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true,
+      primaryKey: true, autoIncrement: true,
       references: {
         model: 'teams',
         key: 'id'
       }
     }
   }, {
-    tableName: 'organization_teams'
+    timestamps: false, tableName: 'organization_teams'
   });
 };

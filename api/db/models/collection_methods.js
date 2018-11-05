@@ -5,13 +5,13 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true, autoIncrement: true
     },
     method: {
       type: DataTypes.STRING(250),
       allowNull: true
     }
   }, {
-    tableName: 'collection_methods'
+    timestamps: false, tableName: 'collection_methods'
   });
 };

@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true, autoIncrement: true
     },
     username: {
       type: DataTypes.STRING(250),
@@ -44,6 +44,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }, {
-    tableName: 'users'
+    timestamps: false, tableName: 'users'
   });
 };
