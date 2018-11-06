@@ -1,21 +1,30 @@
-const express = require('express');
-const app = express();
-// const db = require('./data/entity-repository');
+'use-strict';
 
 /**
-* Controller Imports
+* requires.
 */
-const accountController = require('./controllers/account.controller');
-const entitiesController = require('./controllers/entities.controller');
+const express = require('express');
 /** */
 
 /**
-* Service Registrations
+* controller imports
+*/
+const accountController = require('./controllers/account.controller');
+const entitiesController = require('./controllers/entities.controller');
+
+/**
+* service registrations
 */
 const bodyParser = require("body-parser");
 
+/**
+* create app.
+*/
+const app = express();
+/** */
+
 /** bodyParser.urlencoded(options)
-* Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
+* parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
 * and exposes the resulting object (containing the keys and values) on req.body
 */
 app.use(bodyParser.urlencoded({
@@ -23,14 +32,23 @@ app.use(bodyParser.urlencoded({
 }));
 
 /**bodyParser.json(options)
-* Parses the text as JSON and exposes the resulting object on req.body.
+* parses the text as JSON and exposes the resulting object on req.body.
 */
 app.use(bodyParser.json());
 /** */
 
-app.get('/account/login', (request, response) => accountController.login(request, response));
-app.get('/entities', (request, response) => entitiesController.handle(request, response));
+/**
+* web services => controller routings.
+*/
 
-app.listen(8888, function() {
+// ACCOUNT
+app.get('/account/login', (request, response) => accountController.login(request, response));
+// ENTITIES
+app.get('/entities', (request, response) => entitiesController.handle(request, response));
+/** */
+
+// start http listener.
+app.listen(8888, () => {
     console.log('server started..');
 });
+/** */
