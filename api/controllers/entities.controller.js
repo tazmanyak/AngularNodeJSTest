@@ -1,24 +1,70 @@
+'use-strict';
+
+/**
+* requires.
+*/
 const entityRepository = require('../db/entity-repository');
 
-const handle = (request, response) => {
-    console.log('handle entity req.');
+/**
+* 
+* @param {*} request 
+* @param {*} response 
+*/
+const handle = async (request, response) => {
+    const requestModel = request.body;
+    /*
+    requestModel =>
+    {
+        key: string = 'state' | 'district'...
+        operation: string = 'findOne' | 'findAll' | 'update' | 'build' | 'destroy'
+        entity: TEntity = { }
+        query: object = { } => query options format of sequelize
+        includes: array<object> => include format of sequelize
+    }
+    */
+    if (!requestModel) {
+        response.end('Error => Request model not provided.');
+    }
     
-    const entity = entityRepository['state'];
+    // get entity.
+    const entity = entityRepository[requestModel.key];
     
-    
-    entity['findAll']().then(results => {
-        console.log(results.map(r => { return r.dataValues }));
-    });
-    
-    entity['update']({name: 'pooiuouioiu'}, { where: {id: 1} }).then(() => {
-        console.log(entity);
-        response.end();
-    });
-    
-    entity['build']({name: 'pooiuouioiu'}).save(() => {
-        console.log(entity);
-        response.end();
-    });
+    try {
+        // execute request.
+        let result = undefined;
+        switch (requestModel.operation) {
+            case 'findOne':
+            result = await entity.findOne(requestModel.query);
+            response.end(JSON.stringify(result));
+            break;
+            
+            case 'findAll':
+            result = await entity.findAll(requestModel.query);
+            response.end(JSON.stringify(result));
+            break;
+            
+            case 'add':
+            result = await entity.build(requestModel.entity).save();
+            response.end(JSON.stringify(result));
+            break;
+            
+            case 'update':
+            result = await entity.update(requestModel.entity, requestModel.query);
+            response.end(JSON.stringify(result));
+            break;
+            
+            case 'destroy':
+            result = await entity.destroy(requestModel.query);
+            response.end(JSON.stringify(result));
+            break;
+            
+            default:
+            response.end(JSON.stringify(null));
+            break;
+        }
+    } catch (error) {
+        response.end(JSON.stringify(error));
+    }
 };
 
 module.exports.handle = handle;
