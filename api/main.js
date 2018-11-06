@@ -44,7 +44,7 @@ app.use(bodyParser.json());
 // ACCOUNT
 app.get('/account/login', (request, response) => accountController.login(request, response));
 // ENTITIES
-app.get('/entities', (request, response) => entitiesController.handle(request, response));
+app.post('/entities', (request, response) => entitiesController.handle(request, response));
 /** */
 
 // start http listener.
